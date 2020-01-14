@@ -28,7 +28,6 @@ class DriveTrain : public frc::Subsystem {
   //functions
   void MoveArcade(double X, double Y);
   void MoveTank(double left, double right);
-  double Limit(double value, double lowerLimit = -1.0, double upperLimit = 1.0);
   void Stop();
 
 };

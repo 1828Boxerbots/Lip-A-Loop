@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "../include/subsystems/DriveTrain.h"
+#include "../include/Util.h"
 
 DriveTrain::DriveTrain() : Subsystem("DriveTrain") {}
 
@@ -18,31 +19,10 @@ void DriveTrain::InitDefaultCommand() {
 
 const double NOPOWER = 0.0;
 
-double DriveTrain::Limit(double value, double lowerLimit, double upperLimit)
-{
-  if(lowerLimit > upperLimit)
-  {
-    double replace = lowerLimit;
-    lowerLimit = upperLimit;
-    upperLimit = replace;
-  }
-
-  if(value < lowerLimit)
-  {
-    value = lowerLimit;
-  }
-
-  if(value > upperLimit)
-  {
-    value = upperLimit;
-  }
-  return(value);
-}
-
 void DriveTrain::MoveTank(double left, double right)
 {
-  left = Limit(left);
-  right = Limit(right);
+  left = Util::Limit(left);
+  right = Util::Limit(right);
   m_motorL.Set(left * m_scale);
   m_motorR.Set(right * m_scale);
 }

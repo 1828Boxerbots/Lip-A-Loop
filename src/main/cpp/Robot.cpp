@@ -13,7 +13,7 @@
 ExampleSubsystem Robot::m_subsystem;
 OI Robot::m_oi;
 DriveTrain Robot::m_drivetrain;
-//Arm Robot::m_arm;
+Arm Robot::m_arm;
 
 void Robot::RobotInit() {
   m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
@@ -80,7 +80,7 @@ void Robot::TeleopInit() {
   //}
 
   m_driveCMD.Start();
-  
+  m_armCMD.Start();
 }
 
 void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }

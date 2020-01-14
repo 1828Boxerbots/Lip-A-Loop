@@ -5,9 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-/*
+
 #include "../include/commands/ArmCMD.h"
 #include <Robot.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 ArmCMD::ArmCMD() {
   // Use Requires() here to declare subsystem dependencies
@@ -24,6 +25,7 @@ void ArmCMD::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ArmCMD::Execute() 
 {
+  Robot::m_arm.Log();
   //Declare Variables
   frc::XboxController * pController = Robot::m_oi.getController();
   bool buttonA = pController -> GetAButton();
@@ -34,15 +36,20 @@ void ArmCMD::Execute()
   bool bumperR = pController -> GetBumper(frc::GenericHID::kRightHand);
   //Run Commands
 
+  frc::SmartDashboard::SmartDashboard::GetBoolean("Button A", buttonA);
+  frc::SmartDashboard::SmartDashboard::GetBoolean("Button B", buttonB);
+  frc::SmartDashboard::SmartDashboard::GetBoolean("Button X", buttonX);
+  frc::SmartDashboard::SmartDashboard::GetBoolean("Button Y", buttonY);
+
   //Lifting and lowering arm
-  if(buttonA == true && buttonB == false)
-  {
-    Robot::m_arm.Lift();
-  } 
-  else if(buttonA == false && buttonB == true)
-  {
-    Robot::m_arm.Lower();  
-  }
+    if(bumperL == true && bumperR == false)
+    {
+      Robot::m_arm.Lift();
+    }
+    else if(bumperL == false && bumperR == true)
+    {
+      Robot::m_arm.Lower();  
+    }
   
   //Opening and closing hand
   if(buttonX == true && buttonY == false)
@@ -55,11 +62,11 @@ void ArmCMD::Execute()
   }
 
   //Tilting up and down the hand
-  if(bumperL == true && bumperR == false)
+  if(buttonA == true && buttonB == false)
   {
     Robot::m_arm.TiltUp();
   }
-  else if(bumperL == false && bumperR == true)
+  else if(buttonA == false && buttonB == true)
   {
     Robot::m_arm.TiltDown();
   }
@@ -74,5 +81,3 @@ void ArmCMD::End() {}
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void ArmCMD::Interrupted() {}
-
-*/

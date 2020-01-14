@@ -33,9 +33,23 @@ class Arm : public frc::Subsystem {
   void Lower();
   void TiltDown();
   void TiltUp();
+  void Log();
+  void SetTwoZero();
 
   private:
+  double oneDegree = 0.005;
+  double scale = 0.1;
+
   double m_handAngle = 0.0;
   double m_armAngle = 0.0;
-  double m_wristAngle = 90.0;
+  double m_wristAngle = 0.0;
+
+  const double MIN_ARM = 0.16;
+  const double MAX_ARM = 0.65;
+
+  const double MIN_WRIST = 0.0;
+  const double MAX_WRIST = 0.47;
+
+  const double MIN_HAND = 0.06;
+  const double MAX_HAND = 0.5;
 };

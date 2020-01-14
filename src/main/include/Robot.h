@@ -18,6 +18,7 @@
 #include "subsystems/DriveTrain.h"
 #include "subsystems/Arm.h"
 #include "commands/DriveCMD.h"
+#include "commands/ArmCMD.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -25,8 +26,9 @@ class Robot : public frc::TimedRobot {
   static OI m_oi;
   
   static DriveTrain m_drivetrain;
- // static Arm m_arm;
+  static Arm m_arm;
   DriveCMD m_driveCMD;
+  ArmCMD m_armCMD;
 
   void RobotInit() override;
   void RobotPeriodic() override;

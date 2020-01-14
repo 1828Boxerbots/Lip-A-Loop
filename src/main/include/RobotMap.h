@@ -9,9 +9,9 @@
 
 int constexpr PWM_MOTOR_RIGHT = 4;
 int constexpr PWM_MOTOR_LEFT = 3;
-int constexpr PWM_SERVO_ARM = 2;
+int constexpr PWM_SERVO_ARM = 0;
 int constexpr PWM_SERVO_WRIST = 1;
-int constexpr PWM_SERVO_HAND = 0;
+int constexpr PWM_SERVO_HAND = 2;
 int constexpr USB_CONTROLLLER_ONE = 0;
 
 /**
