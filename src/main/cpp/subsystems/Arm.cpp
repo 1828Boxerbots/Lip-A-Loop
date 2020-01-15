@@ -33,7 +33,7 @@ void Arm::Log()
 void Arm::SetTwoZero()
 {
   //m_servoArm.Set(0.0);
-  m_servoHand.Set(0.5);
+  //m_servoHand.Set(0.5);
   //m_servoWrist.Set(0.0);
 }
 

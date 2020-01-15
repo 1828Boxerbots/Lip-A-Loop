@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "../include/subsystems/DriveTrain.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "../include/Util.h"
 
 DriveTrain::DriveTrain() : Subsystem("DriveTrain") {}
@@ -15,9 +16,20 @@ void DriveTrain::InitDefaultCommand() {
   // SetDefaultCommand(new MySpecialCommand());
   m_motorL.SetInverted(false);
   m_motorR.SetInverted(true);
+
+  Log();
 }
 
 const double NOPOWER = 0.0;
+
+void DriveTrain::Log()
+{
+  rightPower = m_motorR.Get();
+  leftPower = m_motorL.Get();
+
+  frc::SmartDashboard::SmartDashboard::PutNumber("Left Motor", leftPower);
+  frc::SmartDashboard::SmartDashboard::PutNumber("Right Motor", rightPower);
+}
 
 void DriveTrain::MoveTank(double left, double right)
 {

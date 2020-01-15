@@ -38,7 +38,7 @@ class Arm : public frc::Subsystem {
 
   private:
   double oneDegree = 0.005;
-  double scale = 0.1;
+  double scale = 0.5;
 
   double m_handAngle = 0.0;
   double m_armAngle = 0.0;

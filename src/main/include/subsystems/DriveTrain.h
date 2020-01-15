@@ -24,10 +24,14 @@ class DriveTrain : public frc::Subsystem {
   //objects
   frc::Victor m_motorL {PWM_MOTOR_LEFT};
   frc::Victor m_motorR {PWM_MOTOR_RIGHT};
-  double m_scale = 0.3;
+  double m_scale = 0.4;
   //functions
   void MoveArcade(double X, double Y);
   void MoveTank(double left, double right);
   void Stop();
+  void Log();
 
+  //Vaiables
+  double leftPower;
+  double rightPower;
 };

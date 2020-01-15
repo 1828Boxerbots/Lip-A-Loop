@@ -25,6 +25,7 @@ void DriveCMD::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveCMD::Execute() 
 {
+  Robot::m_drivetrain.Log();
   frc::XboxController * pController = Robot::m_oi.getController();
   //double leftX = pController -> GetX(frc::GenericHID::kLeftHand);
   double leftY = pController -> GetY(frc::GenericHID::kLeftHand);
